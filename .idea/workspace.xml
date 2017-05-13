@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8eea2cf6-1e2d-4412-a311-0d5384033bcf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Assignment2/ProblemA$BisectionValues.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Assignment2/ProblemA$FalsePositionValues.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Assignment2/ProblemA$ModifiedSecantValues.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Assignment2/ProblemA$NewtonRaphsonValues.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Assignment2/ProblemA$SecantValues.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Assignment2/ProblemA.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ProblemA.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/Assignment2/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bisection.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FalsePosition.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ModifiedSecant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NewtonRaphson.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Secant.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project 2.txt" afterPath="$PROJECT_DIR$/Project 2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assignment2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/out/production/Assignment2/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assignment2/Project 2.txt" afterPath="$PROJECT_DIR$/out/production/Assignment2/Project 2.txt" />
-    </list>
+    <list default="true" id="8eea2cf6-1e2d-4412-a311-0d5384033bcf" name="Default" comment="" />
     <ignored path="Assignment2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -690,15 +671,15 @@
       <workItem from="1494019918866" duration="655000" />
       <workItem from="1494266888328" duration="8345000" />
       <workItem from="1494356401272" duration="1786000" />
-      <workItem from="1494463912900" duration="31000" />
+      <workItem from="1494463912900" duration="139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10817000" />
+    <option name="totallyTimeSpent" value="10925000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
