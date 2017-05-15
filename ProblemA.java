@@ -11,14 +11,17 @@ public class ProblemA {
     private static final double MINIMUM_ERROR = 0.01;
     private static NumberFormat formatter = new DecimalFormat("#0.0000");
 
-    private static Equation polynomialA = new Polynomial(2, -11.7, 17.7, -5);
+    private static Equation problemA = new Cubic(2, -11.7, 17.7, -5);
+    private static Equation problemAPrime = new Cubic(0, 6, -23.4, 17.7);
+    private static Equation problemB = new HyperbolicB();
+    private static Equation problemBPrime = new HyperbolicBPrime();
 
     private static Scanner in;
 
     public static void main(String[] args) {
         System.out.println("f(x) = 2(x^3) - 11.7(x^2) + 17.7(x) - 5"); /* , evaluated at x = 1 is:");
         System.out.println(a.evaluate(1));
-        Polynomial aPrime = new Polynomial(0, 6, -23.4, 17.7);
+        Cubic aPrime = new Cubic(0, 6, -23.4, 17.7);
         System.out.println("f'(x) = 6(x^2) - 23.4(x) + 17.7, evaluated at x = 1 is:");
         System.out.println(aPrime.evaluate(1)); */
 
@@ -80,9 +83,9 @@ public class ProblemA {
             validResp = true;
             switch(choice){
                 case '1':
-                    bv[0] = new Bisection(BISECTION_A1, BISECTION_B1, polynomialA);
-                    bv[1] = new Bisection(BISECTION_A2, BISECTION_B2, polynomialA);
-                    bv[2] = new Bisection(BISECTION_A3, BISECTION_B3, polynomialA);
+                    bv[0] = new Bisection(BISECTION_A1, BISECTION_B1, problemA);
+                    bv[1] = new Bisection(BISECTION_A2, BISECTION_B2, problemA);
+                    bv[2] = new Bisection(BISECTION_A3, BISECTION_B3, problemA);
                     break;
                 case '2':
                     System.out.println("Not written yet");

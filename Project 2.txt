@@ -15,8 +15,8 @@ This function has 3 +ve roots, all of which lie between 0 and 4.  Find the roots
 Let the maximum iterations be 100. For the modified secant method, use d = 0.01. Plot the graphs for the approximate % 
 relative error for different roots. Each graph should have 5 error curves, one for each method.
 
-             (b) f(x) = x + 10 � xcosh(50/x)
-             	f'(x) = cosh(50/x) - 50(sinh(50/x) / x) + 1
+             (b) f(x) = x + 10 - xcosh(50/x)
+             	f'(x) = 1 + cosh(50/x) - 50(sinh(50/x) / x)
 
 For this function, plot true % approximate error for each method similar to the part (a). Use d = 0.01 for modified 
 secant method. Figure out the initial points for the other methods. The root lies in the interval [120, 130]

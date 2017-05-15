@@ -1,14 +1,14 @@
 /**
  * Created by Connor on 5/8/2017.
  */
-public class Polynomial implements Equation {
+public class Cubic implements Equation {
 
     private double x3;
     private double x2;
     private double x;
     private double c;
 
-    public Polynomial(double x3, double x2, double x, double c) {
+    public Cubic(double x3, double x2, double x, double c) {
         this.x3 = x3;
         this.x2 = x2;
         this.x = x;
