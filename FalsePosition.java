@@ -1,8 +1,9 @@
 /**
- * Bisection Method for finding the roots of an equation
- * c = (a + b) / 2
+ * False Position Method for finding the roots of an equation
+ * c = [((a * f(b)) - (b * f(a))) / (f(b) - f(a))]
  */
-public class Bisection extends RootLocatingMethod {
+public class FalsePosition extends RootLocatingMethod {
+    private int n;
     private double a;
     private double b;
     private double c;
@@ -10,15 +11,16 @@ public class Bisection extends RootLocatingMethod {
     private double fB;
     private double fC;
 
-    public Bisection(double a, double b, Equation p) {
+    public void FalsePosition(double a, double b, Equation p) {
         this.n = 0;
-        this.p = p;
         this.a = a;
         this.b = b;
-        this.c = (a + b) / 2;
-        this.fA = p.evaluate(this.a);
-        this.fB = p.evaluate(this.b);
-        this.fC = p.evaluate(this.c);
+        this.p = p;
+        this.fA = this.p.evaluate(this.a);
+        this.fB = this.p.evaluate(this.b);
+        this.c = ((this.a * this.fB) - (this.b * this.fA)) /
+                    (this.fB - this.fA);
+        this.fC = this.p.evaluate(this.c);
         this.aError = Double.MAX_VALUE;
     }
 
@@ -32,7 +34,8 @@ public class Bisection extends RootLocatingMethod {
             fB = fC;
         }
         double oldC = c;
-        c = (a + b) / 2;
+        c = ((a * fB) - (b * fA)) /
+                (fB - fA);
         fC = p.evaluate(c);
         aError = Math.abs((c - oldC) / c);
         ++n;

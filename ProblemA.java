@@ -13,50 +13,6 @@ public class ProblemA {
 
     private static Equation polynomialA = new Polynomial(2, -11.7, 17.7, -5);
 
-    /**
-     * False Position Method for finding the roots of an equation
-     * c = [((a * f(b)) - (b * f(a))) / (f(b) - f(a))]
-     */
-    class FalsePositionValues {
-        public int n = 0;
-        public double a = 0;
-        public double b = 0;
-        public double c = 0;
-        public double fA = 0;
-        public double fB = 0;
-        public double fC = 0;
-        public double aError = 0;
-    }
-
-    /**
-     * Secant Method for finding the roots of an equation
-     * X(n+1) = Xn + f(Xn)[(X(n) - X(n-1)) / (f(X(n)) - f(X(n-1)))]
-     */
-    class SecantValues {
-        public int n = 0;
-        public double xMinus = 0;
-        public double x = 0;
-        public double xPlus = 0;
-        public double fXMinus = 0;
-        public double fX = 0;
-        public double fXPlus = 0;
-        public double aError = 0;
-    }
-
-    /**
-     * Modified Secant Method for finding the roots of an equation
-     * X(n+1) = Xn - f(Xn)[(delta * Xn)) / (f(X(n) + (delta * X(n))) - f(X(n)))]
-     */
-    class ModifiedSecantValues{
-        public int n = 0;
-        public double x = 0;
-        public double xPlus = 0;
-        public double delta = 0;
-        public double fX = 0;
-        public double fXDelta = 0;
-        public double aError = 0;
-    }
-
     private static Scanner in;
 
     public static void main(String[] args) {
