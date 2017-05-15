@@ -1,7 +1,7 @@
 /**
  * Created by Connor on 5/8/2017.
  */
-public class Polynomial {
+public class Polynomial implements Equation {
 
     private double x3;
     private double x2;
