@@ -3,11 +3,9 @@
  * X(n+1) = Xn - f(Xn)[(delta * Xn)) / (f(X(n) + (delta * X(n))) - f(X(n)))]
  */
 public class ModSecant extends RootLocatingMethod {
-    private int n;
     private double x;
     private double delta;
     private double fX;
-    private double aError;
 
     public ModSecant(double x, double delta, Equation p) {
         this.n = 0;
@@ -22,7 +20,8 @@ public class ModSecant extends RootLocatingMethod {
     public void next() {
         double oldX = x;
         double deltaX = delta * x;
-        x = oldX - (fX * ((deltaX) / (p.evaluate(oldX + deltaX) - p.evaluate(oldX))));
+        x = oldX - (fX * ((deltaX) / (p.evaluate(oldX + deltaX) - fX)));
+        fX = p.evaluate(x);
         aError = Math.abs((x - oldX) / x);
         ++n;
     }

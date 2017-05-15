@@ -1,6 +1,6 @@
 /**
  * Newton-Raphson Method for finding the roots of an equation
- * X(n+1) = Xn + [f(Xn)/f'(Xn)]
+ * X(n+1) = Xn - [f(Xn)/f'(Xn)]
  */
 public class NewtonRaphson extends RootLocatingMethod {
     private double x;
@@ -22,7 +22,7 @@ public class NewtonRaphson extends RootLocatingMethod {
     @Override
     public void next() {
         double oldX = x;
-        x += (fX / fPrimeX);
+        x = oldX - (fX / fPrimeX);
         fX = p.evaluate(x);
         fPrimeX = pPrime.evaluate(x);
         aError = Math.abs((x - oldX) / x);

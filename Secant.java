@@ -1,15 +1,12 @@
 /**
  * Secant Method for finding the roots of an equation
- * X(n+1) = Xn + f(Xn)[(X(n) - X(n-1)) / (f(X(n)) - f(X(n-1)))]
+ * X(n+1) = Xn - f(Xn)[(X(n) - X(n-1)) / (f(X(n)) - f(X(n-1)))]
  */
 public class Secant extends RootLocatingMethod{
-    private int n;
     private double a;
     private double b;
-    private double c;
     private double fA;
     private double fB;
-    private double fC;
 
     public Secant (double a, double b, Equation p) {
         this.n = 0;
@@ -25,36 +22,37 @@ public class Secant extends RootLocatingMethod{
             this.b = a;
             this.fB = tmp;
         }
-        this.c = this.b + (this.fB * ((this.b - this.a) / (this.fB - this.fA)));
-        this.fC = this.p.evaluate(this.c);
         this.aError = Double.MAX_VALUE;
     }
 
     @Override
     public void next() {
-        b = c;
-        fB = fC;
         if(Math.abs(fA) > Math.abs(fB)) {
-            double tmp = fA;
+            double tmpA = a;
+            double tmpFA = fA;
             a = b;
             fA = fB;
-            b = a;
-            fB = tmp;
+            b = tmpA;
+            fB = tmpFA;
         }
-        double oldC = c;
-        c = b + (fB * ((b - a) / (fB - fA)));
-        fC = p.evaluate(c);
-        aError = Math.abs((c - oldC) / c);
+        double oldA = a;
+        double d = (b - a) / (fB - fA);
+        b = a;
+        fB = fA;
+        d = d * fA;
+        a = a - d;
+        fA = p.evaluate(a);
+        aError = Math.abs((a - oldA) / a);
         ++n;
     }
 
     @Override
     public double getEstVal() {
-        return c;
+        return a;
     }
 
     @Override
     public double getEstFuncVal() {
-        return fC;
+        return fA;
     }
 }

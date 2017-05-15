@@ -3,7 +3,6 @@
  * c = [((a * f(b)) - (b * f(a))) / (f(b) - f(a))]
  */
 public class FalsePosition extends RootLocatingMethod {
-    private int n;
     private double a;
     private double b;
     private double c;
@@ -11,7 +10,7 @@ public class FalsePosition extends RootLocatingMethod {
     private double fB;
     private double fC;
 
-    public void FalsePosition(double a, double b, Equation p) {
+    public FalsePosition(double a, double b, Equation p) {
         this.n = 0;
         this.a = a;
         this.b = b;
