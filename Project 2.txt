@@ -18,6 +18,10 @@ relative error for different roots. Each graph should have 5 error curves, one f
              (b) f(x) = x + 10 - xcosh(50/x)
              	f'(x) = 1 + cosh(50/x) - 50(sinh(50/x) / x)
 
+Write a report that shows the print outs of all the tables for each methods and the graphs as well. Talk about the starting points and convergence to the root for the different methods used.
+
+Point out any interesting/strange behaviors you might observe while using these numerical methods. Comment on the data types used to calculate the roots in your program.
+
 For this function, plot true % approximate error for each method similar to the part (a). Use d = 0.01 for modified 
 secant method. Figure out the initial points for the other methods. The root lies in the interval [120, 130]
 
