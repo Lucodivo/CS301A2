@@ -1,4 +1,10 @@
 /**
+ * Connor A. Haskins
+ * Bronco ID# 010215400
+ * CS 301 w/ Professor Raheja
+ * Project 2: Root Locating Methods
+ * Due Date: May 15th
+ *
  * Hardcoded class. Not reusable.
  * Made for problem (b)
  */

@@ -1,5 +1,11 @@
 /**
- * Created by Connor on 5/8/2017.
+ * Connor A. Haskins
+ * Bronco ID# 010215400
+ * CS 301 w/ Professor Raheja
+ * Project 2: Root Locating Methods
+ * Due Date: May 15th
+ *
+ * Class used for storing polynomial functions up to (x^3)
  */
 public class Cubic implements Equation {
 

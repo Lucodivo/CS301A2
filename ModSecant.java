@@ -1,4 +1,10 @@
 /**
+ * Connor A. Haskins
+ * Bronco ID# 010215400
+ * CS 301 w/ Professor Raheja
+ * Project 2: Root Locating Methods
+ * Due Date: May 15th
+ *
  * Modified Secant Method for finding the roots of an equation
  * X(n+1) = Xn - f(Xn)[(delta * Xn)) / (f(X(n) + (delta * X(n))) - f(X(n)))]
  */

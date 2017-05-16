@@ -1,48 +1,72 @@
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Scanner;
+/**
+ * Connor A. Haskins
+ * Bronco ID# 010215400
+ * CS 301 w/ Professor Raheja
+ * Project 2: Root Locating Methods
+ * Due Date: May 15th
+ */
+
+ import java.util.Scanner;
 
 /**
  * (a) f(x) = 2x3 - 11.7x2 + 17.7x - 5
+ *    f'(x) = 6(x^2) - 23.4(x) + 17.7
+ *
+ * (b) f(x) = x + 10 - xcosh(50/x)
+ * 	  f'(x) = 1 + cosh(50/x) - 50(sinh(50/x) / x)
+ *
+ * This program allows a user to solve either of these two hard-coded functions using
+ * five root locating methods (Bisection, Newton-Raphson, Secant, False-Position, and Modified Secant).
+ * User can enter in starting values manually or used the values provided.
  */
+
 public class Assignment2 {
 
-    private static final int MAX_ITERATIONS = 100;
-    private static final double MINIMUM_ERROR = 0.0001;
-    private static NumberFormat formatter = new DecimalFormat("#0.0000");
+    private static final int MAX_ITERATIONS = 100; // max iterations of any method
+    private static final double MINIMUM_ERROR = 0.0001; // approximate accuracy each method goes for
 
+    // Equations used for root locating methods
     private static Equation problemA = new Cubic(2, -11.7, 17.7, -5);
     private static Equation problemAPrime = new Cubic(0, 6, -23.4, 17.7);
     private static Equation problemB = new HyperbolicB();
     private static Equation problemBPrime = new HyperbolicBPrime();
 
+    // current problem that is being worked on
     private static Equation currProblem;
     private static Equation currProblemPrime;
 
     // constants for Problem (a)
+    // x-values bracketing the roots
     private static final double BISECTION_A1_P1 = 0;
     private static final double BISECTION_B1_P1 = 1;
     private static final double BISECTION_A2_P1 = 3;
     private static final double BISECTION_B2_P1 = 1;
     private static final double BISECTION_A3_P1 = 3;
     private static final double BISECTION_B3_P1 = 4;
+    // x-values with slopes that point towards the roots
     private static final double NEWTON_RAPHSON_X1_P1 = 0.75;
     private static final double NEWTON_RAPHSON_X2_P1 = 1.5;
     private static final double NEWTON_RAPHSON_X3_P1 = 3.0;
+    // delta value for modified secant
     private static final double MOD_SECANT_DELTA_P1 = 0.01;
 
     //constants for Problem (b)
+    // x-values bracketing the roots
     private static final double BISECTION_A_P2 = 120;
     private static final double BISECTION_B_P2 = 130;
+    // x-value with slope that points toward the root
     private static final double NEWTON_RAPHSON_X_P2 = 130;
+    // delta value for modified secant
     private static final double MOD_SECANT_DELTA_P2 = 0.01;
 
+    // Used for user input
     private static Scanner in;
 
     public static void main(String[] args) {
 
         in = new Scanner(System.in);
 
+        // find roots until the user decides to quit
         while(true) {
             boolean validResp = false;
             while(!validResp) {
@@ -72,6 +96,7 @@ public class Assignment2 {
                 }
             }
 
+            // array of root locating methods based on user input
             RootLocatingMethod [] rlm = null;
 
             validResp = false;
@@ -108,10 +133,14 @@ public class Assignment2 {
                 }
             }
 
+            // find a root for each root locating method specified
             for(int i = 0; i < rlm.length; ++i) {
+                // print header
                 System.out.println("n\tx\t\t\tf(x)\t\t\tapprox. error");
-                // find first zero
                 rlm[i].print();
+                // approximate and print values using root locaitn method until...
+                // approximate error is small enough, iterations are too large, the real root is found,
+                // or the approximations are diverging
                 while(rlm[i].getAError() > MINIMUM_ERROR && rlm[i].getN() < MAX_ITERATIONS
                         && rlm[i].getEstFuncVal() != 0 && Math.abs(rlm[i].getEstFuncVal()) < 1000 &&
                         Math.abs(rlm[i].getEstVal()) < 1000){
@@ -125,6 +154,10 @@ public class Assignment2 {
         }
     }
 
+    /**
+     * Creates Bisection classes used for locating roots
+     * Asks user whether they would like to use pre-selected values for method or enter in manually.
+     */
     private static RootLocatingMethod [] InitBisectionMethod() {
         RootLocatingMethod [] bm = null;
 
@@ -171,6 +204,10 @@ public class Assignment2 {
         return bm;
     }
 
+    /**
+     * gets values for single Bisection object
+     * verifies the integrity of user input
+     */
     private static Bisection bisectionInput() {
         boolean validInput = false;
         Bisection bm = null;
@@ -194,6 +231,10 @@ public class Assignment2 {
         return bm;
     }
 
+    /**
+     * Creates Newton-Raphson classes used for locating roots
+     * Asks user whether they would like to use pre-selected values for method or enter in manually.
+     */
     private static RootLocatingMethod [] InitNewtonRaphsonMethod() {
         RootLocatingMethod [] nr = null;;
 
@@ -240,6 +281,7 @@ public class Assignment2 {
         return nr;
     }
 
+    // gets values for single Newton-Raphson object
     private static RootLocatingMethod NewtonRaphsonInput() {
         System.out.println("Enter an x-value.");
         double x = in.nextDouble();
@@ -248,6 +290,10 @@ public class Assignment2 {
         return new NewtonRaphson(x, currProblem, currProblemPrime);
     }
 
+    /**
+     * Creates Secant classes used for locating roots
+     * Asks user whether they would like to use pre-selected values for method or enter in manually.
+     */
     private static RootLocatingMethod [] InitSecantMethod() {
         RootLocatingMethod [] s = null;;
 
@@ -294,6 +340,7 @@ public class Assignment2 {
         return s;
     }
 
+    // gets values for single Secant object
     private static RootLocatingMethod SecantInput() {
         System.out.println("Enter two x-values.");
         double a = in.nextDouble();
@@ -303,6 +350,10 @@ public class Assignment2 {
         return new Secant(a, b, currProblem);
     }
 
+    /**
+     * Creates FalsePosition classes used for locating roots
+     * Asks user whether they would like to use pre-selected values for method or enter in manually.
+     */
     private static RootLocatingMethod [] InitFalsePositionMethod() {
         RootLocatingMethod [] fp = null;;
 
@@ -349,6 +400,10 @@ public class Assignment2 {
         return fp;
     }
 
+    /**
+     * gets values for single FalsePosition object
+     * verifies the integrity of user input
+     */
     private static RootLocatingMethod FalsePositionInput() {
         boolean validInput = false;
         FalsePosition fp = null;
@@ -372,6 +427,10 @@ public class Assignment2 {
         return fp;
     }
 
+    /**
+     * Creates Modified Secant classes used for locating roots
+     * Asks user whether they would like to use pre-selected values for method or enter in manually.
+     */
     private static RootLocatingMethod [] InitModSecantMethod() {
         RootLocatingMethod [] ms = null;;
 
@@ -418,6 +477,7 @@ public class Assignment2 {
         return ms;
     }
 
+    // gets values for single Modified Secant object
     private static RootLocatingMethod ModSecantInput() {
         System.out.println("Enter an x-value.");
         double x = in.nextDouble();

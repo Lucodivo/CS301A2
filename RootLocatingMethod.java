@@ -1,8 +1,17 @@
+/**
+ * Connor A. Haskins
+ * Bronco ID# 010215400
+ * CS 301 w/ Professor Raheja
+ * Project 2: Root Locating Methods
+ * Due Date: May 15th
+ */
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
- * Created by Connor on 5/14/2017.
+ * An abstract class made to simplify the root locating methods
+ * Creates an interface to interact with the methods in an interchangeable way
  */
 public abstract class RootLocatingMethod {
     protected int n;
